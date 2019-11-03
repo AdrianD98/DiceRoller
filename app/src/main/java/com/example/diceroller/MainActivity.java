@@ -55,14 +55,45 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public int roll_the_dice(){
+        Random r = new Random();
+        int number = r.nextInt (6)+1;
+        return number;
+    }
+
     public void on_button_click(View view)  {
 
         TextView tv = this.findViewById(R.id.DiceText);
 
-        Random r = new Random();
-        int number = r.nextInt (6)+1;
+        tv.setText(Integer.toString(roll_the_dice()));
+    }
 
-        tv.setText(Integer.toString(number));
+
+    public void on_button_click_D_Ice(View view)  {
+
+        TextView tv = this.findViewById(R.id.DiceText);
+
+        switch(roll_the_dice()) {
+            case 1:
+                tv.setText("If you could go anywhere in the world, where would you go?");
+                break;
+            case 2:
+                tv.setText("If you were stranded on a desert island, what three things would you want to take with you?");
+                break;
+            case 3:
+                tv.setText("If you could eat only one food for the rest of your life, what would that be?");
+                break;
+            case 4:
+                tv.setText("If you won a million dollars, what is the first thing you would buy?");
+                break;
+            case 5:
+                tv.setText("If you could spaned the day with one fictional character, who would it be?");
+                break;
+            case 6:
+                tv.setText("If you found a magic lantern and a genie gave you three wishes, what would you wish?");
+                break;
+        }
+
     }
 }
-
